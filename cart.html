@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Shopinity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-rose-100 to-pink-100 shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <img src="https://img.icons8.com/fluency/48/shopping-bag.png" alt="Shopinity Logo" class="h-10 w-10">
+                    <a href="index.html" class="text-2xl font-bold text-rose-600">Shopinity</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-rose-600 transition">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-rose-600 transition">Products</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-rose-600 transition">Contact</a>
+                    <a href="cart.html" class="relative">
+                        <i class="fas fa-shopping-cart text-gray-700 hover:text-rose-600 transition"></i>
+                        <span class="absolute -top-2 -right-2 bg-rose-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-gray-700 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Home</a>
+            <a href="products.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Products</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Contact</a>
+            <a href="cart.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Your Shopping Cart</h1>
+                <p class="text-lg text-gray-600">Review your items and proceed to checkout</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Cart Items -->
+                <div class="lg:col-span-2" data-aos="fade-up">
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-900">Cart Items</h2>
+                            <span class="text-gray-500 cart-count">0 items</span>
+                        </div>
+                        
+                        <div id="cartItems" class="space-y-4">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+
+                        <!-- Empty Cart Message -->
+                        <div id="emptyCart" class="text-center py-8 hidden">
+                            <i class="fas fa-shopping-cart text-4xl text-gray-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Your cart is empty</h3>
+                            <p class="text-gray-600 mb-4">Looks like you haven't added any items to your cart yet.</p>
+                            <a href="products.html" class="inline-block bg-rose-600 text-white py-2 px-6 rounded-md hover:bg-rose-700 transition">
+                                Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Save for Later -->
+                    <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Saved for Later</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center p-4 border rounded-lg hover:shadow-md transition">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Saved Item" class="w-20 h-20 object-cover rounded">
+                                <div class="ml-4">
+                                    <h3 class="font-semibold">Wireless Headphones</h3>
+                                    <p class="text-gray-600">$199.99</p>
+                                    <button class="text-rose-600 hover:text-rose-700 mt-2">
+                                        Move to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="lg:col-span-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-6">Order Summary</h2>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span class="font-semibold" id="subtotal">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Shipping</span>
+                                <span class="font-semibold" id="shipping">$0.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tax</span>
+                                <span class="font-semibold" id="tax">$0.00</span>
+                            </div>
+                            <div class="border-t pt-4">
+                                <div class="flex justify-between">
+                                    <span class="text-lg font-bold">Total</span>
+                                    <span class="text-lg font-bold" id="total">$0.00</span>
+                                </div>
+                            </div>
+
+                            <button onclick="window.location.href='checkout.html'" class="w-full bg-rose-600 text-white py-3 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Proceed to Checkout
+                            </button>
+
+                            <!-- Payment Methods -->
+                            <div class="mt-6">
+                                <p class="text-gray-600 mb-2">We Accept:</p>
+                                <div class="flex space-x-2">
+                                    <i class="fab fa-cc-visa text-2xl text-gray-600"></i>
+                                    <i class="fab fa-cc-mastercard text-2xl text-gray-600"></i>
+                                    <i class="fab fa-cc-amex text-2xl text-gray-600"></i>
+                                    <i class="fab fa-cc-paypal text-2xl text-gray-600"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Shopinity</h3>
+                    <p class="text-gray-400">Your one-stop shopping destination for all your needs.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-gray-400">support@shopinity.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Shopinity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cartItems');
+        const emptyCartMessage = document.getElementById('emptyCart');
+        const cartCount = document.querySelector('.cart-count');
+        const subtotalElement = document.getElementById('subtotal');
+        const shippingElement = document.getElementById('shipping');
+        const taxElement = document.getElementById('tax');
+        const totalElement = document.getElementById('total');
+
+        // Function to add item to cart
+        function addToCart(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = `${totalItems} items`;
+
+            // Show/hide empty cart message
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItemsContainer.innerHTML = '';
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                renderCartItems();
+            }
+
+            // Update totals
+            updateTotals();
+        }
+
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = cart.map((item, index) => `
+                <div class="cart-item flex items-center py-4 border-b border-gray-200" data-aos="fade-up">
+                    <img src="${item.image}" alt="${item.name}" class="w-24 h-24 object-cover rounded">
+                    <div class="ml-4 flex-grow">
+                        <h3 class="text-lg font-semibold">${item.name}</h3>
+                        <p class="text-gray-600">$${item.price.toFixed(2)}</p>
+                        <div class="flex items-center mt-2">
+                            <button class="quantity-btn px-2 py-1 border rounded-l hover:bg-gray-100" onclick="updateQuantity(${index}, -1)">-</button>
+                            <input type="number" value="${item.quantity}" min="1" class="w-16 text-center border-t border-b" onchange="updateQuantity(${index}, this.value - item.quantity)">
+                            <button class="quantity-btn px-2 py-1 border rounded-r hover:bg-gray-100" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                    <div class="ml-4 text-right">
+                        <p class="font-semibold">$${(item.price * item.quantity).toFixed(2)}</p>
+                        <button class="text-red-500 hover:text-red-700 mt-2" onclick="removeItem(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateQuantity(index, change) {
+            const newQuantity = cart[index].quantity + change;
+            if (newQuantity > 0) {
+                cart[index].quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCart();
+        }
+
+        function updateTotals() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = subtotal > 0 ? 10 : 0;
+            const tax = subtotal * 0.1; // 10% tax
+            const total = subtotal + shipping + tax;
+
+            subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            shippingElement.textContent = `$${shipping.toFixed(2)}`;
+            taxElement.textContent = `$${tax.toFixed(2)}`;
+            totalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Initialize cart
+        updateCart();
+
+        // Listen for storage events to update cart when modified from other pages
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'cart') {
+                cart = JSON.parse(e.newValue) || [];
+                updateCart();
+            }
+        });
+    </script>
+</body>
+</html> 

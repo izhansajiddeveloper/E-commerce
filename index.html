@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopinity - Your Fashion Destination</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-rose-100 to-pink-100 shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <img src="https://img.icons8.com/fluency/48/shopping-bag.png" alt="Shopinity Logo" class="h-10 w-10">
+                    <a href="index.html" class="text-2xl font-bold text-rose-600">Shopinity</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-rose-600 transition">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-rose-600 transition">Products</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-rose-600 transition">Contact</a>
+                    <a href="cart.html" class="relative">
+                        <i class="fas fa-shopping-cart text-gray-700 hover:text-rose-600 transition"></i>
+                        <span class="absolute -top-2 -right-2 bg-rose-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-gray-700 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Home</a>
+            <a href="products.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Products</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Contact</a>
+            <a href="cart.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-12 bg-gradient-to-r from-rose-200 via-pink-200 to-purple-200">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-left" data-aos="fade-right">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block">Welcome to Shopinity</span>
+                        <span class="block text-rose-600">Your Fashion Destination</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-700 sm:text-lg md:mt-5 md:text-xl">
+                        Discover the latest trends in fashion, electronics, and more. Shop from our curated collection of premium products at unbeatable prices.
+                    </p>
+                    <div class="mt-5 sm:flex sm:justify-start md:mt-8">
+                        <div class="rounded-md shadow">
+                            <a href="products.html" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 md:py-4 md:text-lg md:px-10 btn-hover">
+                                Shop Now
+                            </a>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-3">
+                            <a href="#categories" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-rose-600 bg-white hover:bg-rose-50 md:py-4 md:text-lg md:px-10">
+                                Explore Categories
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fashion Model" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8" data-aos="fade-up">Shop by Category</h2>
+            <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+                <!-- Category Cards -->
+                <a href="products.html?category=fashion" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-tshirt text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Fashion</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=electronics" class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-mobile-alt text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Electronics</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=home" class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-home text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Home & Living</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=beauty" class="category-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-spa text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Beauty</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=sports" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-running text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Sports</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=books" class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-book text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Books</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=toys" class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-gamepad text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Toys & Games</h3>
+                    </div>
+                </a>
+                <a href="products.html?category=accessories" class="category-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-rose-50 rounded-lg p-6 text-center hover:shadow-lg transition">
+                        <i class="fas fa-gem text-4xl text-rose-600 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900">Accessories</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Featured Products</h2>
+                <p class="text-lg text-gray-600">Discover our handpicked selection of premium products</p>
+            </div>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                <!-- Fashion Products -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fashion Product" class="w-full h-48 object-cover img-hover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Summer Dress</h3>
+                            <p class="text-gray-600">$49.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Electronics Products -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Electronics Product" class="w-full h-48 object-cover img-hover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Wireless Headphones</h3>
+                            <p class="text-gray-600">$199.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(5.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more product cards for other categories -->
+                <!-- Home & Living -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Home Product" class="w-full h-48 object-cover img-hover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Modern Sofa</h3>
+                            <p class="text-gray-600">$599.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beauty -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Beauty Product" class="w-full h-48 object-cover img-hover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Luxury Perfume</h3>
+                            <p class="text-gray-600">$89.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sports Products -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Sports Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">New</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Running Shoes</h3>
+                            <p class="text-gray-600">$129.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(5.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Books -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Book Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Bestseller</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Design Patterns</h3>
+                            <p class="text-gray-600">$39.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toys & Games -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Toy Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Popular</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">LEGO Set</h3>
+                            <p class="text-gray-600">$79.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessories -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Accessory Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Trending</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Designer Watch</h3>
+                            <p class="text-gray-600">$299.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(5.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Products -->
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fashion Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Sale</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Designer Handbag</h3>
+                            <p class="text-gray-600">$199.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Electronics Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">New</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Gaming Laptop</h3>
+                            <p class="text-gray-600">$1299.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(5.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Home Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Popular</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Smart TV</h3>
+                            <p class="text-gray-600">$799.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.0)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden hover-card">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Beauty Product" class="w-full h-48 object-cover img-hover">
+                            <span class="absolute top-2 right-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs">Bestseller</span>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Skincare Set</h3>
+                            <p class="text-gray-600">$89.99</p>
+                            <div class="flex items-center mt-2 mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                            </div>
+                            <button class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Section -->
+    <section class="py-16 bg-gradient-to-r from-rose-500 to-pink-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center text-white transform hover:scale-105 transition duration-300" data-aos="fade-up">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Free Shipping</h3>
+                    <p class="text-rose-100">On orders over $50</p>
+                </div>
+                <div class="text-center text-white transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tag text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Special Offers</h3>
+                    <p class="text-rose-100">Up to 50% off</p>
+                </div>
+                <div class="text-center text-white transform hover:scale-105 transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white bg-opacity-20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-box text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">New Arrivals</h3>
+                    <p class="text-rose-100">Check out latest products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Join Our Newsletter</h2>
+                <p class="text-lg text-gray-600 mb-8">Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                <form class="max-w-md mx-auto flex">
+                    <input type="email" placeholder="Enter your email" class="px-6 py-3 rounded-l-md w-full newsletter-input focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                    <button class="bg-rose-600 text-white px-8 py-3 rounded-r-md hover:bg-rose-700 transition transform hover:scale-105">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Shopinity</h3>
+                    <p class="text-gray-400">Your one-stop shopping destination for all your needs.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-gray-400">support@shopinity.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Shopinity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Shopinity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-gradient-to-r from-rose-100 to-pink-100 shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <img src="https://img.icons8.com/fluency/48/shopping-bag.png" alt="Shopinity Logo" class="h-10 w-10">
+                    <a href="index.html" class="text-2xl font-bold text-rose-600">Shopinity</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-rose-600 transition">Home</a>
+                    <a href="products.html" class="text-gray-700 hover:text-rose-600 transition">Products</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-rose-600 transition">Contact</a>
+                    <a href="cart.html" class="relative">
+                        <i class="fas fa-shopping-cart text-gray-700 hover:text-rose-600 transition"></i>
+                        <span class="absolute -top-2 -right-2 bg-rose-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-gray-700 text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Home</a>
+            <a href="products.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Products</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Contact</a>
+            <a href="cart.html" class="block py-2 px-4 text-gray-700 hover:bg-rose-50">Cart</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-rose-200 via-pink-200 to-purple-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Explore Our Products</h1>
+                <p class="text-lg text-gray-700">Discover amazing products across all categories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Filters and Search -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="flex-1 w-full md:w-auto">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="w-full px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                    </div>
+                    <div class="flex gap-4">
+                        <select id="categoryFilter" class="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                            <option value="">All Categories</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="home">Home & Living</option>
+                            <option value="beauty">Beauty</option>
+                            <option value="sports">Sports</option>
+                            <option value="books">Books</option>
+                            <option value="toys">Toys & Games</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                        <select id="priceSort" class="px-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                            <option value="">Sort by Price</option>
+                            <option value="low-high">Low to High</option>
+                            <option value="high-low">High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="productsGrid">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span>Product added to cart successfully!</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Shopinity</h3>
+                    <p class="text-gray-400">Your one-stop shopping destination for all your needs.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="text-gray-400">support@shopinity.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span class="text-gray-400">+1 (555) 123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Shopinity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Sample product data
+        const products = [
+            // Fashion Products
+            {
+                id: 1,
+                name: 'Summer Dress',
+                price: 49.99,
+                category: 'fashion',
+                rating: 4.5,
+                image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 2,
+                name: 'Designer Handbag',
+                price: 199.99,
+                category: 'fashion',
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 3,
+                name: 'Leather Jacket',
+                price: 299.99,
+                category: 'fashion',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Electronics Products
+            {
+                id: 4,
+                name: 'Wireless Headphones',
+                price: 199.99,
+                category: 'electronics',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 5,
+                name: 'Gaming Laptop',
+                price: 1299.99,
+                category: 'electronics',
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 6,
+                name: 'Smart Watch',
+                price: 299.99,
+                category: 'electronics',
+                rating: 4.4,
+                image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Home & Living Products
+            {
+                id: 7,
+                name: 'Modern Sofa',
+                price: 599.99,
+                category: 'home',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 8,
+                name: 'Smart TV',
+                price: 799.99,
+                category: 'home',
+                rating: 4.5,
+                image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 9,
+                name: 'Coffee Table',
+                price: 199.99,
+                category: 'home',
+                rating: 4.3,
+                image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace'
+            },
+
+            // Beauty Products
+            {
+                id: 10,
+                name: 'Luxury Perfume',
+                price: 89.99,
+                category: 'beauty',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 11,
+                name: 'Skincare Set',
+                price: 79.99,
+                category: 'beauty',
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 12,
+                name: 'Makeup Kit',
+                price: 129.99,
+                category: 'beauty',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Sports Products
+            {
+                id: 13,
+                name: 'Running Shoes',
+                price: 89.99,
+                category: 'sports',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 14,
+                name: 'Yoga Mat',
+                price: 29.99,
+                category: 'sports',
+                rating: 4.5,
+                image: 'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 15,
+                name: 'Fitness Tracker',
+                price: 149.99,
+                category: 'sports',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1576243345690-4e4b79b63288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Books Products
+            {
+                id: 16,
+                name: 'Design Patterns Book',
+                price: 39.99,
+                category: 'books',
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 17,
+                name: 'Cookbook Collection',
+                price: 49.99,
+                category: 'books',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 18,
+                name: 'Art History Book',
+                price: 59.99,
+                category: 'books',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Toys & Games Products
+            {
+                id: 19,
+                name: 'LEGO Set',
+                price: 79.99,
+                category: 'toys',
+                rating: 4.9,
+                image: 'https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 20,
+                name: 'Board Game',
+                price: 34.99,
+                category: 'toys',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 21,
+                name: 'Remote Control Car',
+                price: 49.99,
+                category: 'toys',
+                rating: 4.5,
+                image: 'https://images.unsplash.com/photo-1594787318286-3d835c1d207f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+
+            // Accessories Products
+            {
+                id: 22,
+                name: 'Designer Watch',
+                price: 299.99,
+                category: 'accessories',
+                rating: 4.8,
+                image: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 23,
+                name: 'Sunglasses',
+                price: 129.99,
+                category: 'accessories',
+                rating: 4.6,
+                image: 'https://images.unsplash.com/photo-1577803645773-f96470509666?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            },
+            {
+                id: 24,
+                name: 'Leather Wallet',
+                price: 59.99,
+                category: 'accessories',
+                rating: 4.7,
+                image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+            }
+        ];
+
+        // Add to cart functionality
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const existingItem = cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Show success message
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 translate-y-0';
+                toast.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span>Added to cart successfully!</span>
+                    </div>
+                `;
+                document.body.appendChild(toast);
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.style.transform = 'translateY(100%)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        }
+
+        // Filter and sort functionality
+        const categoryFilter = document.getElementById('categoryFilter');
+        const priceSort = document.getElementById('priceSort');
+        const searchInput = document.getElementById('searchInput');
+        const productsGrid = document.getElementById('productsGrid');
+
+        function filterAndSortProducts() {
+            const selectedCategory = categoryFilter.value;
+            const sortOrder = priceSort.value;
+            const searchTerm = searchInput.value.toLowerCase();
+
+            let filteredProducts = [...products];
+
+            // Apply category filter
+            if (selectedCategory) {
+                filteredProducts = filteredProducts.filter(product => 
+                    product.category === selectedCategory
+                );
+            }
+
+            // Apply search filter
+            if (searchTerm) {
+                filteredProducts = filteredProducts.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Apply price sorting
+            if (sortOrder) {
+                filteredProducts.sort((a, b) => {
+                    if (sortOrder === 'low-high') {
+                        return a.price - b.price;
+                    } else {
+                        return b.price - a.price;
+                    }
+                });
+            }
+
+            // Update the grid
+            updateProductsGrid(filteredProducts);
+        }
+
+        function updateProductsGrid(products) {
+            productsGrid.innerHTML = products.map(product => `
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden hover-card" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover img-hover">
+                        <div class="absolute top-2 right-2">
+                            <button class="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition">
+                                <i class="far fa-heart text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-900">${product.name}</h3>
+                        <p class="text-gray-600">$${product.price.toFixed(2)}</p>
+                        <div class="flex items-center mt-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                ${Array(5).fill().map((_, i) => 
+                                    `<i class="fas fa-star${i < Math.floor(product.rating) ? '' : i < product.rating ? '-half-alt' : ' far'}"></i>`
+                                ).join('')}
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(${product.rating})</span>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="w-full bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition btn-hover">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add event listeners
+        categoryFilter.addEventListener('change', filterAndSortProducts);
+        priceSort.addEventListener('change', filterAndSortProducts);
+        searchInput.addEventListener('input', filterAndSortProducts);
+
+        // Initialize the grid
+        updateProductsGrid(products);
+    </script>
+</body>
+</html>
